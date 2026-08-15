@@ -1,0 +1,1913 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Great Human Migrations | School Project</title>
+
+ <a href="about.html">Go to About Page</a>
+
+<style>
+
+:root {
+
+--bg: #07111f;
+
+--bg2: #0f172a;
+
+--card: #101d33;
+
+--text: #f8fafc;
+
+--muted: #cbd5e1;
+
+--blue: #38bdf8;
+
+--gold: #fbbf24;
+
+--orange: #fb923c;
+
+--green: #34d399;
+
+--red: #f87171;
+
+--purple: #a78bfa;
+
+--shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+
+--glass: rgba(255, 255, 255, 0.08);
+
+}
+
+ 
+
+* {
+
+box-sizing: border-box;
+
+scroll-behavior: smooth;
+
+}
+
+ 
+
+body {
+
+margin: 0;
+
+font-family: Inter, Segoe UI, Arial, sans-serif;
+
+background: radial-gradient(circle at top left, #1e3a8a 0, #07111f 35%, #020617 100%);
+
+color: var(--text);
+
+overflow-x: hidden;
+
+}
+
+ 
+
+.stars {
+
+position: fixed;
+
+inset: 0;
+
+z-index: -2;
+
+background-image: radial-gradient(#fff 1px, transparent 1px);
+
+background-size: 38px 38px;
+
+opacity: 0.12;
+
+}
+
+ 
+
+.globe {
+
+position: fixed;
+
+right: -190px;
+
+top: 50px;
+
+width: 520px;
+
+height: 520px;
+
+border-radius: 50%;
+
+z-index: -1;
+
+background: radial-gradient(
+
+circle at 35% 35%,
+
+rgba(56, 189, 248, 0.55),
+
+rgba(30, 58, 138, 0.25) 45%,
+
+rgba(15, 23, 42, 0.15) 65%,
+
+transparent 70%
+
+);
+
+filter: blur(0.2px);
+
+animation: float 8s ease-in-out infinite;
+
+}
+
+ 
+
+@keyframes float {
+
+0%, 100% {
+
+transform: translateY(0);
+
+}
+
+ 
+
+50% {
+
+transform: translateY(24px);
+
+}
+
+}
+
+ 
+
+header {
+
+min-height: 100vh;
+
+padding: 34px 7vw 70px;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+ 
+
+nav {
+
+position: fixed;
+
+top: 0;
+
+left: 0;
+
+right: 0;
+
+z-index: 20;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding: 14px 7vw;
+
+background: rgba(2, 6, 23, 0.62);
+
+backdrop-filter: blur(14px);
+
+border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+
+}
+
+ 
+
+.brand {
+
+font-weight: 900;
+
+letter-spacing: 0.3px;
+
+}
+
+ 
+
+.brand span {
+
+color: var(--gold);
+
+}
+
+ 
+
+nav a {
+
+color: var(--muted);
+
+text-decoration: none;
+
+margin-left: 16px;
+
+font-size: 14px;
+
+}
+
+ 
+
+nav a:hover {
+
+color: var(--gold);
+
+}
+
+ 
+
+.btn {
+
+display: inline-flex;
+
+align-items: center;
+
+gap: 10px;
+
+border: 0;
+
+border-radius: 999px;
+
+padding: 13px 21px;
+
+background: linear-gradient(135deg, var(--gold), var(--orange));
+
+color: #111827;
+
+font-weight: 900;
+
+cursor: pointer;
+
+text-decoration: none;
+
+box-shadow: 0 10px 24px rgba(251, 191, 36, 0.25);
+
+transition: 0.25s;
+
+}
+
+ 
+
+.btn:hover {
+
+transform: translateY(-3px) scale(1.02);
+
+}
+
+ 
+
+.btn.secondary {
+
+background: rgba(255, 255, 255, 0.08);
+
+color: white;
+
+border: 1px solid rgba(255, 255, 255, 0.16);
+
+box-shadow: none;
+
+}
+
+ 
+
+.hero-grid {
+
+display: grid;
+
+grid-template-columns: 1.1fr 0.9fr;
+
+gap: 38px;
+
+align-items: center;
+
+margin-top: 58px;
+
+}
+
+ 
+
+.eyebrow {
+
+color: var(--blue);
+
+font-weight: 900;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+font-size: 13px;
+
+}
+
+ 
+
+h1 {
+
+font-size: clamp(44px, 7vw, 88px);
+
+line-height: 0.95;
+
+margin: 16px 0 18px;
+
+letter-spacing: -3px;
+
+}
+
+ 
+
+.grad {
+
+background: linear-gradient(90deg, #fff, #7dd3fc, #fbbf24);
+
+-webkit-background-clip: text;
+
+color: transparent;
+
+}
+
+ 
+
+.hero p {
+
+font-size: clamp(17px, 2vw, 22px);
+
+line-height: 1.7;
+
+color: var(--muted);
+
+max-width: 720px;
+
+}
+
+ 
+
+.hero-actions {
+
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 14px;
+
+margin-top: 28px;
+
+}
+
+ 
+
+.plane {
+
+position: absolute;
+
+top: 22%;
+
+left: -70px;
+
+font-size: 42px;
+
+animation: fly 10s linear infinite;
+
+opacity: 0.9;
+
+}
+
+ 
+
+@keyframes fly {
+
+to {
+
+left: 105%;
+
+transform: translateY(-70px) rotate(8deg);
+
+}
+
+}
+
+ 
+
+.map-card {
+
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+
+border: 1px solid rgba(255, 255, 255, 0.13);
+
+border-radius: 34px;
+
+padding: 26px;
+
+box-shadow: var(--shadow);
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+ 
+
+.map-card:before {
+
+content: "";
+
+position: absolute;
+
+inset: -60px;
+
+background: radial-gradient(circle at 55% 45%, rgba(56, 189, 248, 0.25), transparent 45%);
+
+pointer-events: none;
+
+}
+
+ 
+
+.world {
+
+min-height: 360px;
+
+border-radius: 28px;
+
+background:
+
+linear-gradient(135deg, rgba(14, 165, 233, 0.11), rgba(15, 23, 42, 0.8)),
+
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 520'%3E%3Cpath fill='%2322d3ee' opacity='.18' d='M165 180c50-78 132-110 219-82 59 19 93 66 132 110 56 63 137 42 192 87 52 43 53 130 0 169-62 46-154 12-216-26-80-50-126-47-198-7-89 49-198 41-244-20-55-73 29-118 115-231Z'/%3E%3Cpath fill='%23fbbf24' opacity='.17' d='M540 78c82-24 169-8 230 39 43 33 32 99-22 110-63 13-92-49-146-39-62 12-99 82-152 54-55-29-10-134 90-164Z'/%3E%3Cpath fill='%2334d399' opacity='.16' d='M292 120c-53 44-98 57-157 40-48-14-78 27-58 73 24 56 87 40 129 70 48 34 26 105 89 122 69 19 93-57 62-110-32-55 15-113-65-195Z'/%3E%3C/svg%3E");
+
+background-size: cover;
+
+background-position: center;
+
+position: relative;
+
+border: 1px solid rgba(255, 255, 255, 0.08);
+
+}
+
+ 
+
+.pin {
+
+position: absolute;
+
+border: 2px solid rgba(255, 255, 255, 0.75);
+
+background: rgba(15, 23, 42, 0.76);
+
+color: white;
+
+border-radius: 999px;
+
+padding: 8px 12px;
+
+font-weight: 900;
+
+font-size: 13px;
+
+cursor: pointer;
+
+box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+
+transition: 0.25s;
+
+}
+
+ 
+
+.pin:hover {
+
+transform: scale(1.14);
+
+background: var(--gold);
+
+color: #111827;
+
+}
+
+ 
+
+.p1 {
+
+left: 43%;
+
+top: 47%;
+
+}
+
+ 
+
+.p2 {
+
+left: 59%;
+
+top: 44%;
+
+}
+
+ 
+
+.p3 {
+
+left: 71%;
+
+top: 39%;
+
+}
+
+ 
+
+.p4 {
+
+left: 20%;
+
+top: 42%;
+
+}
+
+ 
+
+.p5 {
+
+left: 29%;
+
+top: 34%;
+
+}
+
+ 
+
+.p6 {
+
+left: 50%;
+
+top: 59%;
+
+}
+
+ 
+
+section {
+
+padding: 82px 7vw;
+
+}
+
+ 
+
+.section-title {
+
+text-align: center;
+
+max-width: 850px;
+
+margin: 0 auto 42px;
+
+}
+
+ 
+
+.section-title h2 {
+
+font-size: clamp(30px, 5vw, 54px);
+
+margin: 0 0 12px;
+
+}
+
+ 
+
+.section-title p {
+
+color: var(--muted);
+
+font-size: 18px;
+
+line-height: 1.7;
+
+}
+
+ 
+
+.stats {
+
+display: grid;
+
+grid-template-columns: repeat(4, 1fr);
+
+gap: 18px;
+
+}
+
+ 
+
+.stat {
+
+background: var(--glass);
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+
+border-radius: 26px;
+
+padding: 24px;
+
+text-align: center;
+
+box-shadow: var(--shadow);
+
+}
+
+ 
+
+.stat .num {
+
+font-size: 34px;
+
+font-weight: 950;
+
+color: var(--gold);
+
+}
+
+ 
+
+.stat p {
+
+color: var(--muted);
+
+}
+
+ 
+
+.filters {
+
+text-align: center;
+
+margin-bottom: 26px;
+
+}
+
+ 
+
+.filter {
+
+margin: 6px;
+
+border: 1px solid rgba(255, 255, 255, 0.16);
+
+background: rgba(255, 255, 255, 0.08);
+
+color: white;
+
+border-radius: 999px;
+
+padding: 10px 15px;
+
+cursor: pointer;
+
+font-weight: 800;
+
+}
+
+ 
+
+.filter.active,
+
+.filter:hover {
+
+background: var(--blue);
+
+color: #042f3d;
+
+}
+
+ 
+
+.cards {
+
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 22px;
+
+}
+
+ 
+
+.card {
+
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+
+border: 1px solid rgba(255, 255, 255, 0.13);
+
+border-radius: 28px;
+
+padding: 24px;
+
+box-shadow: var(--shadow);
+
+cursor: pointer;
+
+transition: 0.25s;
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+ 
+
+.card:hover {
+
+transform: translateY(-9px);
+
+}
+
+ 
+
+.card:after {
+
+content: "Explore →";
+
+position: absolute;
+
+right: 20px;
+
+bottom: 18px;
+
+color: var(--gold);
+
+font-weight: 900;
+
+}
+
+ 
+
+.icon {
+
+font-size: 42px;
+
+}
+
+ 
+
+.badge {
+
+display: inline-block;
+
+margin-top: 12px;
+
+background: rgba(251, 191, 36, 0.16);
+
+color: #fde68a;
+
+border: 1px solid rgba(251, 191, 36, 0.25);
+
+padding: 7px 12px;
+
+border-radius: 999px;
+
+font-size: 12px;
+
+font-weight: 900;
+
+}
+
+ 
+
+.card h3 {
+
+font-size: 23px;
+
+margin: 14px 0 10px;
+
+}
+
+ 
+
+.card p {
+
+color: var(--muted);
+
+line-height: 1.55;
+
+margin-bottom: 26px;
+
+}
+
+ 
+
+.spotlight {
+
+display: grid;
+
+grid-template-columns: 0.85fr 1.15fr;
+
+gap: 28px;
+
+align-items: center;
+
+background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(56, 189, 248, 0.08));
+
+border: 1px solid rgba(251, 191, 36, 0.23);
+
+border-radius: 36px;
+
+padding: 34px;
+
+box-shadow: var(--shadow);
+
+}
+
+ 
+
+.train {
+
+font-size: 110px;
+
+text-align: center;
+
+filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45));
+
+animation: rumble 1.8s ease-in-out infinite;
+
+}
+
+ 
+
+@keyframes rumble {
+
+0%, 100% {
+
+transform: translateX(0);
+
+}
+
+ 
+
+50% {
+
+transform: translateX(10px);
+
+}
+
+}
+
+ 
+
+.spotlight h2 {
+
+font-size: 40px;
+
+margin: 0;
+
+}
+
+ 
+
+.spotlight p,
+
+.spotlight li {
+
+color: var(--muted);
+
+line-height: 1.7;
+
+}
+
+ 
+
+.quiz {
+
+max-width: 900px;
+
+margin: auto;
+
+background: rgba(255, 255, 255, 0.08);
+
+border: 1px solid rgba(255, 255, 255, 0.13);
+
+border-radius: 28px;
+
+padding: 28px;
+
+box-shadow: var(--shadow);
+
+}
+
+ 
+
+.choice {
+
+display: block;
+
+width: 100%;
+
+text-align: left;
+
+margin: 10px 0;
+
+padding: 14px;
+
+border-radius: 16px;
+
+border: 1px solid rgba(255, 255, 255, 0.13);
+
+background: rgba(255, 255, 255, 0.08);
+
+color: white;
+
+cursor: pointer;
+
+font-weight: 800;
+
+}
+
+ 
+
+.choice:hover {
+
+background: rgba(56, 189, 248, 0.25);
+
+}
+
+ 
+
+#quizResult {
+
+font-size: 20px;
+
+font-weight: 900;
+
+margin-top: 18px;
+
+color: var(--gold);
+
+}
+
+ 
+
+.fact-box {
+
+text-align: center;
+
+background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(167, 139, 250, 0.12));
+
+border: 1px solid rgba(255, 255, 255, 0.14);
+
+border-radius: 30px;
+
+padding: 32px;
+
+box-shadow: var(--shadow);
+
+}
+
+ 
+
+#fact {
+
+font-size: 24px;
+
+color: #e0f2fe;
+
+line-height: 1.6;
+
+min-height: 70px;
+
+}
+
+ 
+
+.modal {
+
+display: none;
+
+position: fixed;
+
+inset: 0;
+
+background: rgba(2, 6, 23, 0.76);
+
+z-index: 99;
+
+align-items: center;
+
+justify-content: center;
+
+padding: 22px;
+
+}
+
+ 
+
+.modal.show {
+
+display: flex;
+
+}
+
+ 
+
+.modal-content {
+
+max-width: 760px;
+
+width: 100%;
+
+background: #0f172a;
+
+border: 1px solid rgba(255, 255, 255, 0.15);
+
+border-radius: 30px;
+
+padding: 30px;
+
+box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6);
+
+position: relative;
+
+}
+
+ 
+
+.close {
+
+position: absolute;
+
+top: 16px;
+
+right: 18px;
+
+background: rgba(255, 255, 255, 0.09);
+
+color: white;
+
+border: 0;
+
+border-radius: 50%;
+
+width: 40px;
+
+height: 40px;
+
+font-size: 22px;
+
+cursor: pointer;
+
+}
+
+ 
+
+.modal-content h2 {
+
+font-size: 34px;
+
+margin: 0 0 12px;
+
+}
+
+ 
+
+.modal-content p,
+
+.modal-content li {
+
+color: var(--muted);
+
+line-height: 1.75;
+
+}
+
+ 
+
+.route {
+
+height: 8px;
+
+background: linear-gradient(90deg, var(--blue), var(--gold), var(--green));
+
+border-radius: 99px;
+
+margin: 18px 0;
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+ 
+
+.route:after {
+
+content: "✈";
+
+position: absolute;
+
+left: 0;
+
+top: -12px;
+
+animation: routeFly 2.5s linear infinite;
+
+}
+
+ 
+
+@keyframes routeFly {
+
+to {
+
+left: 96%;
+
+}
+
+}
+
+ 
+
+footer {
+
+text-align: center;
+
+padding: 36px 7vw;
+
+color: #94a3b8;
+
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+background: #020617;
+
+}
+
+ 
+
+.sources {
+
+font-size: 13px;
+
+line-height: 1.8;
+
+max-width: 900px;
+
+margin: 18px auto 0;
+
+}
+
+ 
+
+.sources a {
+
+color: #7dd3fc;
+
+}
+
+ 
+
+@media(max-width: 900px) {
+
+nav .links {
+
+display: none;
+
+}
+
+ 
+
+.hero-grid,
+
+.spotlight {
+
+grid-template-columns: 1fr;
+
+}
+
+ 
+
+.cards {
+
+grid-template-columns: 1fr;
+
+}
+
+ 
+
+.stats {
+
+grid-template-columns: repeat(2, 1fr);
+
+}
+
+ 
+
+.world {
+
+min-height: 290px;
+
+}
+
+ 
+
+.pin {
+
+font-size: 11px;
+
+padding: 7px 9px;
+
+}
+
+}
+
+ 
+
+@media(max-width: 520px) {
+
+.stats {
+
+grid-template-columns: 1fr;
+
+}
+
+ 
+
+section {
+
+padding: 58px 5vw;
+
+}
+
+ 
+
+header {
+
+padding: 32px 5vw 50px;
+
+}
+
+ 
+
+.hero-actions {
+
+flex-direction: column;
+
+}
+
+ 
+
+.btn {
+
+justify-content: center;
+
+}
+
+ 
+
+.map-card {
+
+padding: 15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+<div class="stars"></div>
+
+<div class="globe"></div>
+
+ 
+
+<nav>
+
+<div class="brand">🌍 Migration <span>Explorer</span></div>
+
+<div class="links">
+
+#timelineJourneys</a>
+
+#partitionIndia-Pakistan</a>
+
+#quizQuiz</a>
+
+#sourcesSources</a>
+
+</div>
+
+</nav>
+
+ 
+
+<header id="top">
+
+<div class="plane">✈️</div>
+
+ 
+
+<div class="hero-grid">
+
+<div class="hero">
+
+<div class="eyebrow">School Project • Interactive History</div>
+
+ 
+
+<h1>
+
+<span class="grad">Great Human Migrations</span><br>
+
+Through History
+
+</h1>
+
+ 
+
+<p>
+
+People have moved for thousands of years: searching for food, safety,
+
+education, work, freedom and a better future. Click the cards and map
+
+pins to explore some journeys that changed our world.
+
+</p>
+
+ 
+
+<div class="hero-actions">
+
+#timelineStart the Journey 🚀</a>
+
+#quizTake the Quiz 🧠</a>
+
+</div>
+
+</div>
+
+ 
+
+<div class="map-card">
+
+<h2>Clickable World Map</h2>
+
+<p style="color:var(--muted)">Tap a pin to learn a migration story.</p>
+
+ 
+
+<div class="world">
+
+<button class="pin p1" onclick="openMigration('africa')">Africa</button>
+
+<button class="pin p2" onclick="openMigration('partition')">India</button>
+
+<button class="pin p3" onclick="openMigration('syria')">Syria</button>
+
+<button class="pin p4" onclick="openMigration('great')">USA</button>
+
+<button class="pin p5" onclick="openMigration('europe')">Europe</button>
+
+<button class="pin p6" onclick="openMigration('bantu')">Bantu</button>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+ 
+
+<section>
+
+<div class="section-title">
+
+<h2>Migration in Numbers</h2>
+
+<p>Quick facts to make the project visually powerful.</p>
+
+</div>
+
+ 
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="num" data-target="70000">0</div>
+
+<p>Years since major modern human movement out of Africa</p>
+
+</div>
+
+ 
+
+<div class="stat">
+
+<div class="num" data-target="15">0</div>
+
+<p>Million people crossed borders during India-Pakistan Partition</p>
+
+</div>
+
+ 
+
+<div class="stat">
+
+<div class="num" data-target="6">0</div>
+
+<p>Million Black Americans moved in the U.S. Great Migration</p>
+
+</div>
+
+ 
+
+<div class="stat">
+
+<div class="num" data-target="3.9">0</div>
+
+<p>Million registered Syrian refugees in the region in 2026</p>
+
+</div>
+
+</div>
+
+</section>
+
+ 
+
+<section id="timeline">
+
+<div class="section-title">
+
+<h2>Explore Major Migrations</h2>
+
+<p>Click any card to open an interactive detail box.</p>
+
+</div>
+
+ 
+
+<div class="filters">
+
+<button class="filter active" onclick="filterCards('all', this)">All</button>
+
+<button class="filter" onclick="filterCards('ancient', this)">Ancient</button>
+
+<button class="filter" onclick="filterCards('modern', this)">Modern</button>
+
+<button class="filter" onclick="filterCards('forced', this)">Forced</button>
+
+</div>
+
+ 
+
+<div class="cards">
+
+<div class="card" data-type="ancient" onclick="openMigration('africa')">
+
+<div class="icon">🧬</div>
+
+<span class="badge">70,000+ years ago</span>
+
+<h3>Out of Africa</h3>
+
+<p>
+
+Early modern humans spread from Africa to Asia, Europe, Australia and beyond.
+
+</p>
+
+</div>
+
+ 
+
+<div class="card" data-type="ancient" onclick="openMigration('bantu')">
+
+<div class="icon">🌾</div>
+
+<span class="badge">About 2,000 years ago</span>
+
+<h3>Bantu Migrations</h3>
+
+<p>
+
+Bantu-speaking communities gradually spread across large parts of Africa.
+
+</p>
+
+</div>
+
+ 
+
+<div class="card" data-type="ancient" onclick="openMigration('silk')">
+
+<div class="icon">🐫</div>
+
+<span class="badge">130 BCE - 1453 CE</span>
+
+<h3>Silk Road Movement</h3>
+
+<p>
+
+Traders, travellers and ideas moved between Asia, India, Arabia and Europe.
+
+</p>
+
+</div>
+
+ 
+
+<div class="card" data-type="modern" onclick="openMigration('europe')">
+
+<div class="icon">⛵</div>
+
+<span class="badge">1500 - 1900</span>
+
+<h3>Europe to the Americas</h3>
+
+<p>
+
+Large numbers moved across the Atlantic for settlement, work and opportunity.
+
+</p>
+
+</div>
+
+ 
+
+<div class="card" data-type="forced modern" onclick="openMigration('great')">
+
+<div class="icon">🚂</div>
+
+<span class="badge">1916 - 1970</span>
+
+<h3>U.S. Great Migration</h3>
+
+<p>
+
+Millions of Black Americans moved from the rural South to Northern and Western cities.
+
+</p>
+
+</div>
+
+ 
+
+<div class="card" data-type="forced modern" onclick="openMigration('syria')">
+
+<div class="icon">🕊️</div>
+
+<span class="badge">Since 2011</span>
+
+<h3>Syrian Refugee Movement</h3>
+
+<p>
+
+Conflict forced millions of Syrians to leave their homes and seek safety.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+ 
+
+<section id="partition">
+
+<div class="spotlight">
+
+<div>
+
+<div class="train">🚂</div>
+
+<p style="text-align:center;color:#fde68a;font-weight:900">
+
+Special India-Pakistan Highlight
+
+</p>
+
+</div>
+
+ 
+
+<div>
+
+<h2>🇮🇳 India - 🇵🇰 Pakistan Partition Migration, 1947</h2>
+
+ 
+
+<p>
+
+When British India was divided into India and Pakistan, huge numbers of people
+
+moved across newly created borders. Many Hindus and Sikhs moved toward India,
+
+while many Muslims moved toward Pakistan. This was one of the largest population
+
+transfers in history.
+
+</p>
+
+ 
+
+<ul>
+
+<li><b>Why did people move?</b> New borders, fear, safety and family connections.</li>
+
+<li><b>How did they travel?</b> By train, foot, bullock carts, trucks and refugee convoys.</li>
+
+<li><b>Impact:</b> Families, cities and cultures across South Asia were deeply changed.</li>
+
+</ul>
+
+ 
+
+<button class="btn" onclick="openMigration('partition')">
+
+Open Detailed Story 📖
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+ 
+
+<section>
+
+<div class="fact-box">
+
+<h2>🎲 Fun Fact Generator</h2>
+
+<p id="fact">Click the button to reveal a migration fact.</p>
+
+<button class="btn" onclick="showFact()">Show New Fact ✨</button>
+
+</div>
+
+</section>
+
+ 
+
+<section id="quiz">
+
+<div class="section-title">
+
+<h2>Mini Quiz</h2>
+
+<p>Test your migration knowledge.</p>
+
+</div>
+
+ 
+
+<div class="quiz">
+
+<h3 id="question">Question appears here</h3>
+
+<div id="choices"></div>
+
+<div id="quizResult"></div>
+
+<button class="btn" onclick="nextQuestion()">Next Question ➜</button>
+
+</div>
+
+</section>
+
+ 
+
+<footer id="sources">
+
+<b>Created for a School Project by a Young Historian 🌟</b>
+
+ 
+
+<div class="sources">
+
+Sources used for facts: Encyclopaedia Britannica on human migration,
+
+Out of Africa, Partition of India and Great Migration; UNHCR Syria Regional
+
+Refugee Response; National Geographic Education; World History Encyclopedia
+
+on Bantu Migration.
+
+</div>
+
+</footer>
+
+ 
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+ 
+
+<script>
+
+const migrations = {
+
+africa: {
+
+title: "🧬 Out of Africa Migration",
+
+route: "Africa ➜ Middle East ➜ Asia, Europe, Australia",
+
+body:
+
+"Modern humans evolved in Africa and later spread to other continents. This journey explains why all humans are connected by a shared ancient story. People moved slowly over many generations, following food, climate and safer places to live.",
+
+why: [
+
+"Search for food and water",
+
+"Changing climate",
+
+"Curiosity and survival",
+
+"New places to settle"
+
+]
+
+},
+
+ 
+
+bantu: {
+
+title: "🌾 Bantu Migrations",
+
+route: "West/Central Africa ➜ Central, Eastern and Southern Africa",
+
+body:
+
+"Bantu-speaking communities moved gradually across a huge area of Africa. They spread farming knowledge, iron tools and many related languages. This was not one single trip. It happened over many centuries.",
+
+why: [
+
+"Better farmland",
+
+"Knowledge of farming and iron tools",
+
+"Population growth",
+
+"New settlements"
+
+]
+
+},
+
+ 
+
+silk: {
+
+title: "🐫 Silk Road Movement",
+
+route: "China ➜ Central Asia ➜ India ➜ Arabia ➜ Europe",
+
+body:
+
+"The Silk Road was not only a trade route. Merchants, travellers, monks and scholars moved ideas, foods, stories, inventions and cultures across continents. India was an important part of these exchange routes.",
+
+why: [
+
+"Trade",
+
+"Learning",
+
+"Religion and culture",
+
+"Adventure"
+
+]
+
+},
+
+ 
+
+europe: {
+
+title: "⛵ European Migration to the Americas",
+
+route: "Europe ➜ North and South America",
+
+body:
+
+"From the 1500s onward, many Europeans crossed the Atlantic Ocean. Some searched for land and work, while others moved because of poverty, conflict or opportunity. This movement changed the Americas forever.",
+
+why: [
+
+"Jobs and land",
+
+"Trade and settlement",
+
+"Religious freedom for some groups",
+
+"New opportunities"
+
+]
+
+},
+
+ 
+
+great: {
+
+title: "🚂 U.S. Great Migration",
+
+route: "Southern USA ➜ Northern, Midwestern and Western cities",
+
+body:
+
+"Between 1916 and 1970, about six million Black Americans moved from the rural South to cities in the North and West. They searched for better jobs, safety and a better life. This changed music, culture, politics and city life in America.",
+
+why: [
+
+"Better industrial jobs",
+
+"Escape from segregation",
+
+"Education and opportunity",
+
+"Family networks"
+
+]
+
+},
+
+ 
+
+partition: {
+
+title: "🇮🇳 🇵🇰 India-Pakistan Partition Migration",
+
+route: "India ⇄ Pakistan, 1947",
+
+body:
+
+"In 1947, British India was divided into India and Pakistan. Around 15 million Hindus, Sikhs and Muslims crossed newly drawn borders. It was one of the largest population transfers in history and it changed families, cities and memories across South Asia.",
+
+why: [
+
+"New international borders",
+
+"Safety and security",
+
+"Religious communities moving to new countries",
+
+"Fa
+
+...
