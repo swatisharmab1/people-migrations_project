@@ -12,7 +12,7 @@
 
 <title>Great Human Migrations | School Project</title>
 
- <a href="about.html">Go to About Page</a>
+ 
 
 <style>
 
@@ -1908,6 +1908,382 @@ why: [
 
 "Religious communities moving to new countries",
 
-"Fa
+"Family reunion and resettlement"
 
-...
+]
+
+},
+
+ 
+
+syria: {
+
+title: "🕊️ Syrian Refugee Movement",
+
+route: "Syria ➜ Türkiye, Lebanon, Jordan, Iraq, Egypt and beyond",
+
+body:
+
+"Since the Syrian crisis began in 2011, millions of Syrians have left their homes. Many moved to nearby countries to find safety, shelter, school and medical support.",
+
+why: [
+
+"Conflict and insecurity",
+
+"Need for safety",
+
+"Homes and schools damaged",
+
+"Search for stability"
+
+]
+
+}
+
+};
+
+ 
+
+function openMigration(key) {
+
+const m = migrations[key];
+
+ 
+
+document.getElementById("modalBody").innerHTML = `
+
+<h2>${m.title}</h2>
+
+<div class="route"></div>
+
+<p><b>Route:</b> ${m.route}</p>
+
+<p>${m.body}</p>
+
+<h3>Why did people move?</h3>
+
+<ul>
+
+${m.why.map(item => `<li>${item}</li>`).join("")}
+
+</ul>
+
+<button class="btn" onclick="closeModal()">Got it 👍</button>
+
+`;
+
+ 
+
+document.getElementById("modal").classList.add("show");
+
+}
+
+ 
+
+function closeModal() {
+
+document.getElementById("modal").classList.remove("show");
+
+}
+
+ 
+
+window.onclick = function(event) {
+
+if (event.target.id === "modal") {
+
+closeModal();
+
+}
+
+};
+
+ 
+
+function filterCards(type, button) {
+
+document.querySelectorAll(".filter").forEach(btn => {
+
+btn.classList.remove("active");
+
+});
+
+ 
+
+button.classList.add("active");
+
+ 
+
+document.querySelectorAll(".card").forEach(card => {
+
+if (type === "all" || card.dataset.type.includes(type)) {
+
+card.style.display = "block";
+
+} else {
+
+card.style.display = "none";
+
+}
+
+});
+
+}
+
+ 
+
+const facts = [
+
+"Humans have been migrating since prehistoric times.",
+
+"The India-Pakistan Partition in 1947 caused one of history’s largest population transfers.",
+
+"The Silk Road helped spread goods, stories, religions and inventions.",
+
+"The Bantu migrations helped spread many related languages across Africa.",
+
+"The U.S. Great Migration changed American cities, music and culture.",
+
+"Refugees are people who leave their country because they need safety."
+
+];
+
+ 
+
+function showFact() {
+
+const randomIndex = Math.floor(Math.random() * facts.length);
+
+document.getElementById("fact").textContent = facts[randomIndex];
+
+}
+
+ 
+
+const quizQuestions = [
+
+{
+
+q: "Which migration happened in 1947?",
+
+c: [
+
+"Out of Africa",
+
+"India-Pakistan Partition",
+
+"Silk Road",
+
+"Bantu Migrations"
+
+],
+
+a: 1
+
+},
+
+{
+
+q: "Where did modern humans first evolve?",
+
+c: [
+
+"Africa",
+
+"Europe",
+
+"Australia",
+
+"Antarctica"
+
+],
+
+a: 0
+
+},
+
+{
+
+q: "What was an important way people travelled during Partition?",
+
+c: [
+
+"Rocket",
+
+"Train",
+
+"Submarine",
+
+"Cable car"
+
+],
+
+a: 1
+
+},
+
+{
+
+q: "Why do people migrate?",
+
+c: [
+
+"Only for holidays",
+
+"For safety, food, work or family",
+
+"Only for games",
+
+"Never because of climate"
+
+],
+
+a: 1
+
+}
+
+];
+
+ 
+
+let currentQuestion = 0;
+
+ 
+
+function loadQuestion() {
+
+const item = quizQuestions[currentQuestion];
+
+ 
+
+document.getElementById("question").textContent = item.q;
+
+ 
+
+document.getElementById("choices").innerHTML = item.c
+
+.map((choice, index) => {
+
+return `<button class="choice" onclick="answer(${index})">${choice}</button>`;
+
+})
+
+.join("");
+
+ 
+
+document.getElementById("quizResult").textContent = "";
+
+}
+
+ 
+
+function answer(selectedIndex) {
+
+if (selectedIndex === quizQuestions[currentQuestion].a) {
+
+document.getElementById("quizResult").textContent = "✅ Correct! Great job.";
+
+} else {
+
+document.getElementById("quizResult").textContent = "❌ Try again. Read the cards and come back!";
+
+}
+
+}
+
+ 
+
+function nextQuestion() {
+
+currentQuestion = (currentQuestion + 1) % quizQuestions.length;
+
+loadQuestion();
+
+}
+
+ 
+
+loadQuestion();
+
+ 
+
+const statsObserver = new IntersectionObserver(
+
+entries => {
+
+entries.forEach(entry => {
+
+if (entry.isIntersecting) {
+
+entry.target.querySelectorAll(".num").forEach(el => {
+
+let target = parseFloat(el.dataset.target);
+
+let number = 0;
+
+let step = target / 60;
+
+ 
+
+let timer = setInterval(() => {
+
+number += step;
+
+ 
+
+if (number >= target) {
+
+number = target;
+
+clearInterval(timer);
+
+}
+
+ 
+
+if (target >= 1000) {
+
+el.textContent = Math.round(number).toLocaleString() + "+";
+
+} else if (target % 1 !== 0) {
+
+el.textContent = number.toFixed(1);
+
+} else {
+
+el.textContent = number.toFixed(0);
+
+}
+
+}, 25);
+
+});
+
+}
+
+});
+
+},
+
+{
+
+threshold: 0.4
+
+}
+
+);
+
+ 
+
+statsObserver.observe(document.querySelector(".stats"));
+
+</script>
+
+ 
+
+</body>
+
+</html>
+
+ 
